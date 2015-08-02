@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(){
-	tListaClientes clientes;
+	tListaClientes clientes; //un nombre mas represaentativo seria mas facil de manejar ej: listaClientes
 	
 	carga (clientes);
 	muestra (clientes);

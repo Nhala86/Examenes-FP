@@ -11,11 +11,11 @@ const string ARCHIVO = "datos.txt";
 
 typedef struct{
 	string nif;
-	tListaProd ventas;
+	tListaProd ventas; //este nombre te generara confusion mas adelante, es mejor dejar nombres claro ej: listaProductos
 }tCliente;
 
 typedef struct{
-	tCliente *cliente;
+	tCliente *cliente; //esto es un array dinamico de puunteros, se pide un array estatico de punteros
 	int contador;
 }tListaClientes;
 
@@ -36,7 +36,7 @@ double totalVentas (tListaClientes & clientes);
 ** La lista de clientes debe seguir estando ordenada por NIF tras insertar. Si la lista está llena, se ignora el nuevo cliente.
 **/
 
-int insertar (tListaClientes & clientes);
+int insertar (tListaClientes & clientes); //tipo int no es adecuado, ademas se le pasan 3 PARAMETROS, no 1
 
 /**
 ** Dada una lista de clientes, carga en ella la información de un archivo datos.txt que contiene en cada línea la información de una venta: NIF del cliente, código de producto, precio y unidades vendidas.
@@ -56,7 +56,7 @@ void muestra (const tListaClientes & clientes);
 ** Dada una lista de clientes libera la memoria dinámica que utiliza.
 **/
 
-vois destruye (tListaClientes & clientes);
+vois destruye (tListaClientes & clientes); //vois??? XD
 
 
 

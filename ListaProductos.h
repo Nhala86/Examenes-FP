@@ -6,6 +6,18 @@
 #include<fstream>
 using namespace std;
 
+/**
+OJO!!
+
+la tListaProd contine un tProductoPtr pero esta delcaracion esta incompleta ,ya que en ninguna parte declaras
+que es un "tProductoPtr". Por otro lado, la "ListaProductos" usa SEGURO el modulo "Producto.h", si no lo incluyes,
+no funcionara. Actualmente lo tienes en "ListaProductos.cpp" pero los includes anidades es mejor que se alojen
+en las cabeceras ".h" por cuestiones de enlazado.
+
+Para punteros, te seria mas sencillo declarar los "productos" como punteros a productos, que es en esencia lo que
+tienes ya, salvo por el hecho de que te ahorrarias declarar "tProductoPtr"
+**/
+
 const int MAX_Produc = 50;
 
 typedef struct{
