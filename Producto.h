@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<string>
+#include<iomanip>
 using namespace std;
 
 typedef struct{
@@ -23,7 +24,7 @@ void muestra(tProducto & producto);
 ** Dado un producto devuelve el total de la venta de ese producto.
 **/
 
-void totalventa (tProducto & producto);
+void totalVenta (tProducto & producto);
 
 
 #endif
