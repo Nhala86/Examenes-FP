@@ -18,13 +18,13 @@ typedef struct{
 ** Dado un producto muestra su información en la pantalla con el si-guiente formato (código – unidades x precio = total)
 **/
 
-void muestra(tProducto & producto);
+void muestra(const tProducto & producto);
 
 /**
 ** Dado un producto devuelve el total de la venta de ese producto.
 **/
 
-void totalVenta (tProducto & producto);
+double totalVenta (tProducto & producto);
 
 
 #endif

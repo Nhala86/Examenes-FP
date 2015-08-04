@@ -9,7 +9,7 @@ Es importante discernir cuando un PARAMETRO se pasa como copia o como lectura, e
 pero no vamos a modificar nada, asi que hay que pasarlo como lectura (const tProducto & producto)
 **/
 
-void muestra(tProducto & producto){
+void muestra(const tProducto & producto){
 	cout << producto.codigo << setw (3) << " - " << producto.unidades << setw (2) << " x " << setw (2) << producto.precio << " = " << totalVenta (producto) << endl;
 }
 
@@ -25,6 +25,8 @@ esta mal como RESULTADO.
 
 **/
 
-void totalVenta (tProducto & producto){
+double totalVenta (tProducto & producto){
+	double total;
 	total = producto.precio * producto.unidades;
+	return total;
 }

@@ -6,12 +6,12 @@
 using namespace std;
 
 int main(){
-	tListaClientes clientes; //un nombre mas represaentativo seria mas facil de manejar ej: listaClientes
+	tListaClientes listaclientes; //un nombre mas represaentativo seria mas facil de manejar ej: listaClientes
 	
-	carga (clientes);
-	muestra (clientes);
+	carga (ARCHIVO, listaclientes);
+	muestra (listaclientes);
 	system("pause");
-	destruye (clientes);
+	destruye (listaclientes);
 	
 	return 0;	
 }

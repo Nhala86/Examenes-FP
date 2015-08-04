@@ -4,6 +4,7 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include"Producto.h"
 using namespace std;
 
 /**
@@ -18,12 +19,18 @@ Para punteros, te seria mas sencillo declarar los "productos" como punteros a pr
 tienes ya, salvo por el hecho de que te ahorrarias declarar "tProductoPtr"
 **/
 
-const int MAX_Produc = 50;
+const int MAX_PRODUCTO = 50;
 
 typedef struct{
-	tProductoPtr productos;
+	tProducto* productos;
 	int contador;
 }tListaProd;
+
+/**
+** Inicializo la lista
+**/
+
+void inicializar (tListaProductos & productos);
 
 /**
 ** Dada una lista de productos y un producto añade el producto al final de la lista. 
@@ -48,6 +55,6 @@ double totalVentas (tListaProd & productos);
 ** Dada una lista de productos libera la memoria dinámica que usa.
 **/
 
-void destrye (tListaProd & productos);
+void destruye (tListaProd & productos);
 
 #endif
