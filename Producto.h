@@ -1,5 +1,5 @@
-#ifndef "Producto_H"
-#define "Producto_H"
+#ifndef Producto_H
+#define Producto_H
 
 #include<iostream>
 #include<string>
@@ -24,7 +24,7 @@ void muestra(const tProducto & producto);
 ** Dado un producto devuelve el total de la venta de ese producto.
 **/
 
-double totalVenta (tProducto & producto);
+double totalVenta (const tProducto & producto);
 
 
 #endif

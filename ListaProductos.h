@@ -1,5 +1,5 @@
-#ifndef "ListaProductos_H"
-#define "ListaProductos_H"
+#ifndef ListaProductos_H
+#define ListaProductos_H
 
 #include<iostream>
 #include<string>
@@ -22,7 +22,7 @@ tienes ya, salvo por el hecho de que te ahorrarias declarar "tProductoPtr"
 const int MAX_PRODUCTO = 50;
 
 typedef struct{
-	tProducto* productos;
+	tProducto* producto;
 	int contador;
 }tListaProd;
 
@@ -30,7 +30,7 @@ typedef struct{
 ** Inicializo la lista
 **/
 
-void inicializar (tListaProductos & productos);
+void inicializar (tListaProd & productos);
 
 /**
 ** Dada una lista de productos y un producto añade el producto al final de la lista. 

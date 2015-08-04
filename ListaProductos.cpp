@@ -3,7 +3,7 @@
 
 using namespace std;
 
- void inicializar (tListaProductos & productos){
+ void inicializar (tListaProd & productos){
 	 productos.producto = new tProducto [MAX_PRODUCTO];
 	 producto.contador = 0;
  }

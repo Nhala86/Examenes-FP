@@ -25,7 +25,7 @@ esta mal como RESULTADO.
 
 **/
 
-double totalVenta (tProducto & producto){
+double totalVenta (const tProducto & producto){
 	double total;
 	total = producto.precio * producto.unidades;
 	return total;

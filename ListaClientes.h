@@ -1,5 +1,5 @@
-#ifndef "ListaClientes_H"
-#define "ListaClientes_H"
+#ifndef ListaClientes_H
+#define ListaClientes_H
 
 #include<iostream>
 #include<string>
@@ -8,7 +8,6 @@
 using namespace std;
 
 const int MAX_CLIENTES = 100;
-const string ARCHIVO = "datos.txt";
 const string CENTINELA = "XXX";
 
 typedef struct{
