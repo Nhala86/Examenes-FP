@@ -7,7 +7,7 @@ void inicializar (tListaClientes & listaclientes){
 	for(int i = 0; i < MAX_CLIENTES; i++){
 		listaclientes.cliente[i] = nullptr;
 	}
-	clientes.contador = 0;
+	listaclientes.contador = 0;
 }
 
 bool encuentra (const tListaClientes & listaclientes, string codigo, int & posicion){
@@ -18,7 +18,7 @@ bool encuentra (const tListaClientes & listaclientes, string codigo, int & posic
 		if (codigo < listaclientes.cliente[mitad]->nif){
 			fin = mitad - 1;
 		}
-		else if (listaclientes.cliente[mitad->nif < codigo]){
+		else if (listaclientes.cliente[mitad]->nif < codigo){
 			ini = mitad + 1;
 		}
 		else oK = true;
@@ -28,44 +28,43 @@ bool encuentra (const tListaClientes & listaclientes, string codigo, int & posic
 	return oK;
 }
 
-double totalVentas (tListaClientes & listaclientes){
+double totalVentas (const tListaClientes & listaclientes){
 	double totalVenta;
 	for(int i =0; i < listaclientes.contador; i++){
-		totalVenta += totalVentas (listaclientes.cliente[i]-> producto);
+		totalVenta += totalVentas (listaclientes.cliente[i]->listaProductos);
 	}
 	return totalVenta;
 }
 
-void insertar (tListaClientes & listaclientes, int pos, int nuevo){ // ordenacion de arrays por insercion
-	for (int i = 1; i < MAX_CLIENTES, i++){
-		nuevo = listaclientes.cliente[i]->nif;
-		pos = 0;
-		while((pos < i) && !(listaclientes.cliente[pos]->nif > nuevo)){
-			pos++;
-		}
-		for (int j = i; j > pos; j--){
-			listaclientes.cliente[j]->nif = listaclientes.cliente[j - 1]->nif;
-		}
-		listaclientes.cliente[pos]->nif = nuevo;
+void insertar (tListaClientes & listaclientes, int pos, int nuevo, const tProducto & producto){ 
+	tCliente cliente;
+	string nif;
+	cliente.nif = nif;
+	inicializar (cliente.listaProductos);
+	
+	for (int i = listaclientes.contador; i > pos; i--){
+		listaclientes.cliente[i] = listaclientes.cliente[i - 1];
 	}
+	listaclientes.cliente[pos] = new tCliente(cliente);
+	insertaProd (listaclientes.cliente[pos]->listaProductos, producto); // AQUI ESTA EL ERROR, NO CONSIGO SOLUCIONARLO
+	listaclientes.contador++;
 }
 
-void carga (ifstream fichero, tListaClientes & listaclientes){
-	int posicion;
+void carga (ifstream & fichero, tListaClientes & listaclientes){
+	int posicion, nuevo;
 	string nif;
-	
+	tProducto producto;
 	inicializar (listaclientes);
 	fichero >> nif;
-	while(nif != CENTINELA){
-		tProducto producto;
-		fichero >> codigo;
-		fichero >> precio;
-		fichero >> unidades;
-		if(encuentra(listaclientes, codigo, posicion)){
+	while(nif != CENTINELA){		
+		fichero >> producto.codigo;
+		fichero >> producto.precio;
+		fichero >> producto.unidades;
+		if(encuentra(listaclientes, nif, posicion)){
 			listaclientes.cliente[posicion] = listaclientes.cliente[posicion - 1];
 		}
-		listaclientes.cliente[posicion] = new tCliente(cliente);
-		insertaProd(listaclientes.cliente[posicion]->producto, producto);
+		insertar (listaclientes, posicion, nuevo, producto);
+		insertaProd(listaclientes.cliente[posicion]->listaProductos, producto);
 		listaclientes.contador++;
 	}
 }
@@ -74,7 +73,7 @@ void muestra (const tListaClientes & listaclientes){
 	for(int i = 0; i < listaclientes.contador; i++){
 		cout << "----------------------------------------------" << endl;
 		cout << "Cliente: " << listaclientes.cliente[i]->nif << endl;
-		muestra (listaclientes.cliente[i]->productos);
+		muestra (listaclientes.cliente[i]->listaProductos);
 		cout << "----------------------------------------------" << endl;
 	}
 	cout << "Total Ventas: " << totalVentas (listaclientes) << endl;
@@ -82,7 +81,7 @@ void muestra (const tListaClientes & listaclientes){
 
 void destruye (tListaClientes & listaclientes){
 	for(int i = 0; i < listaclientes.contador; i++){
-		destruye (listaclientes.cliente[i]->nif);
-		delete listaclientes.cliente;
+		destruye (listaclientes.cliente[i]->listaProductos);
+		delete listaclientes.cliente[i];
 	}	
 }

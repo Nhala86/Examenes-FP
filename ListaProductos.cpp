@@ -5,7 +5,7 @@ using namespace std;
 
  void inicializar (tListaProd & productos){
 	 productos.producto = new tProducto [MAX_PRODUCTO];
-	 producto.contador = 0;
+	 productos.contador = 0;
  }
 
 void insertaProd (tListaProd & productos, const tProducto & producto){
@@ -23,7 +23,7 @@ void muestra (const tListaProd & productos){
 
 double totalVentas (tListaProd & productos){
 	double ventaTotal;
-	for(int i = 0; i < productos.producto; i++){
+	for(int i = 0; i < productos.contador; i++){
 		ventaTotal += totalVenta (productos.producto[i]);
 	}
 	return ventaTotal;

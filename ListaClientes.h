@@ -36,14 +36,14 @@ bool encuentra (const tListaClientes & listaclientes, string codigo, int & posic
 ** Dada una lista de clientes devuelve el total de las ventas.
 **/
 
-double totalVentas (tListaClientes & listaclientes);
+double totalVentas (const tListaClientes & listaclientes);
 
 /**
 ** Dada una lista de clientes, un NIF y un producto, añade un nuevo cliente con ese NIF (y ese producto como primera venta) en la lista de clientes.
 ** La lista de clientes debe seguir estando ordenada por NIF tras insertar. Si la lista está llena, se ignora el nuevo cliente.
 **/
 
-void insertar (tListaClientes & listaclientes, int pos, int nuevo); //tipo int no es adecuado, ademas se le pasan 3 PARAMETROS, no 1
+void insertar (tListaClientes & listaclientes, int pos, int nuevo, const tProducto & producto); //tipo int no es adecuado, ademas se le pasan 3 PARAMETROS, no 1
 
 /**
 ** Dada una lista de clientes, carga en ella la información de un archivo datos.txt que contiene en cada línea la información de una venta: NIF del cliente, código de producto, precio y unidades vendidas.
@@ -51,7 +51,7 @@ void insertar (tListaClientes & listaclientes, int pos, int nuevo); //tipo int n
 ** Si existe, se aña-de el producto a la lista de productos del cliente existente.
 **/
 
-void carga (ifstream fichero, tListaClientes & listaclientes);
+void carga (ifstream & fichero, tListaClientes & listaclientes);
 
 /**
 ** Dada una lista de clientes muestra sus ventas en la pantalla. Termi-na mostrando el total de las ventas.
