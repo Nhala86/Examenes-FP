@@ -10,7 +10,7 @@ int main(){
 	tListaClientes listaclientes; //un nombre mas represaentativo seria mas facil de manejar ej: listaClientes
 	ifstream fichero;
 	fichero.open(ARCHIVO);
-	
+
 	if(!fichero.is_open()){
 		cout << "Error";
 	}
@@ -19,7 +19,7 @@ int main(){
 		muestra (listaclientes);
 		fichero.close();
 		destruye (listaclientes);
-	}	
-	system("pause");	
-	return 0;	
+	}
+	system("pause");
+	return 0;
 }

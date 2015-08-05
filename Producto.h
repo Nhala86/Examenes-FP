@@ -15,7 +15,7 @@ typedef struct{
 
 
 /**
-** Dado un producto muestra su información en la pantalla con el si-guiente formato (código – unidades x precio = total)
+** Dado un producto muestra su informaciï¿½n en la pantalla con el si-guiente formato (cï¿½digo ï¿½ unidades x precio = total)
 **/
 
 void muestra(const tProducto & producto);

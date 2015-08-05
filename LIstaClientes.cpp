@@ -36,12 +36,11 @@ double totalVentas (const tListaClientes & listaclientes){
 	return totalVenta;
 }
 
-void insertar (tListaClientes & listaclientes, int pos, int nuevo, const tProducto & producto){ 
+void insertar (tListaClientes & listaclientes, int pos, string nif, const tProducto & producto){
 	tCliente cliente;
-	string nif;
 	cliente.nif = nif;
 	inicializar (cliente.listaProductos);
-	
+
 	for (int i = listaclientes.contador; i > pos; i--){
 		listaclientes.cliente[i] = listaclientes.cliente[i - 1];
 	}
@@ -51,21 +50,22 @@ void insertar (tListaClientes & listaclientes, int pos, int nuevo, const tProduc
 }
 
 void carga (ifstream & fichero, tListaClientes & listaclientes){
-	int posicion, nuevo;
+	int posicion;
 	string nif;
 	tProducto producto;
 	inicializar (listaclientes);
 	fichero >> nif;
-	while(nif != CENTINELA){		
+	while(nif != CENTINELA && listaclientes.contador < MAX_CLIENTES){
 		fichero >> producto.codigo;
 		fichero >> producto.precio;
 		fichero >> producto.unidades;
-		if(encuentra(listaclientes, nif, posicion)){
-			listaclientes.cliente[posicion] = listaclientes.cliente[posicion - 1];
+		if(!encuentra(listaclientes, nif, posicion)){
+				insertar (listaclientes, posicion, nif, producto);
 		}
-		insertar (listaclientes, posicion, nuevo, producto);
+		else{
 		insertaProd(listaclientes.cliente[posicion]->listaProductos, producto);
-		listaclientes.contador++;
+		}
+		fichero >> nif;
 	}
 }
 
@@ -83,5 +83,5 @@ void destruye (tListaClientes & listaclientes){
 	for(int i = 0; i < listaclientes.contador; i++){
 		destruye (listaclientes.cliente[i]->listaProductos);
 		delete listaclientes.cliente[i];
-	}	
+	}
 }

@@ -19,7 +19,7 @@ Cuidado con la dicotomía del lenguaje natural. Si lees con cuidado veras que la
 "Dado un producto DEVUELVE el total de la venta de ese producto"
 
 En otras palabras, significa que RECIBE un parametro (const tProducto & producto), que lo pasamos solo como copia,
-ya que no lo vamos a modificar, solo queremos acceder al dato. Y DEVOLVEMOS otro parametro, notese que este 
+ya que no lo vamos a modificar, solo queremos acceder al dato. Y DEVOLVEMOS otro parametro, notese que este
 procedimiento no devuelve nada (ningun void lo hace). Asi que aunque la funcion es correcta en funcionamiento
 esta mal como RESULTADO.
 

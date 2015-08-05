@@ -33,11 +33,11 @@ typedef struct{
 void inicializar (tListaProd & productos);
 
 /**
-** Dada una lista de productos y un producto añade el producto al final de la lista. 
-** Si la lista está llena, se ignora el nuevo producto.
+** Dada una lista de productos y un producto aï¿½ade el producto al final de la lista.
+** Si la lista estï¿½ llena, se ignora el nuevo producto.
 **/
 
-void insertaProd (tListaProd & productos, tProducto & producto);
+void insertaProd (tListaProd & productos,const tProducto & producto);
 
 /**
 ** Dada una lista de productos muestra sus productos en la pantalla.
@@ -52,7 +52,7 @@ void muestra (const tListaProd & productos);
 double totalVentas (tListaProd & productos);
 
 /**
-** Dada una lista de productos libera la memoria dinámica que usa.
+** Dada una lista de productos libera la memoria dinï¿½mica que usa.
 **/
 
 void destruye (tListaProd & productos);
