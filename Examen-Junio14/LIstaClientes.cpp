@@ -45,7 +45,7 @@ void insertar (tListaClientes & listaclientes, int pos, string nif, const tProdu
 		listaclientes.cliente[i] = listaclientes.cliente[i - 1];
 	}
 	listaclientes.cliente[pos] = new tCliente(cliente);
-	insertaProd (listaclientes.cliente[pos]->listaProductos, producto); // AQUI ESTA EL ERROR, NO CONSIGO SOLUCIONARLO
+	insertaProd (listaclientes.cliente[pos]->listaProductos, producto); 
 	listaclientes.contador++;
 }
 
@@ -60,10 +60,10 @@ void carga (ifstream & fichero, tListaClientes & listaclientes){
 		fichero >> producto.precio;
 		fichero >> producto.unidades;
 		if(!encuentra(listaclientes, nif, posicion)){
-				insertar (listaclientes, posicion, nif, producto);
+			insertar (listaclientes, posicion, nif, producto);
 		}
 		else{
-		insertaProd(listaclientes.cliente[posicion]->listaProductos, producto);
+			insertaProd(listaclientes.cliente[posicion]->listaProductos, producto);
 		}
 		fichero >> nif;
 	}
