@@ -1,0 +1,4 @@
+666 Puto 1 999.99
+123456 consoladores 100 45.99
+654321 hitachis 20 150
+-1
